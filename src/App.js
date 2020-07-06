@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter, Route, NavLink} from "react-router-dom";
+import VendingMachine from './VendingMachine';
+import Oreos from './Oreos';
+import Dunkaroos from './Dunkaroos';
+import Lunchables from './Lunchables';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Route exact path="/oreos">
+          <Oreos />
+        </Route>
+        <Route exact path="/dunkaroos">
+          <Dunkaroos />
+        </Route>
+        <Route exact path="/lunchables">
+          <Lunchables />
+        </Route>
+        <Route exact path="/">
+          <VendingMachine />  
+        </Route>
+      </BrowserRouter>      
     </div>
   );
 }
